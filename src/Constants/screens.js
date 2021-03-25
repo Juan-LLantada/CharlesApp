@@ -4,6 +4,9 @@ import Splash from '../Screens/Splash';
 import Comunidad from '../Screens/Comunidad';
 import VentaProductos from '../Screens/VentaProductos';
 import Upload from '../Screens/Upload';
+import Confirmacion from '../Screens/Confirmacion';
+import Login from '../Screens/Login';
+import Registro from '../Screens/Registro';
 //chronos cultivos stack
 import Agave from '../Screens/Cultivos/Agave';
 import Aguacate from '../Screens/Cultivos/Aguacate';
@@ -92,6 +95,24 @@ export const mainStack = [
     shown: true,
   },
   {
+    name: 'Confirmacion',
+    component: Confirmacion,
+    label: 'Confirmación de pedido',
+    shown: true,
+  },
+  {
+    name: 'Login',
+    component: Login,
+    label: 'Iniciar Sesión',
+    shown: true,
+  },
+  {
+    name: 'Registro',
+    component: Registro,
+    label: 'Registro',
+    shown: true,
+  },
+  {
     name: 'DrawerChronos',
     component: ChronosDrawer,
     label: 'Chronos',
@@ -104,22 +125,6 @@ export const mainStack = [
     shown: false,
   },
 ];
-/**
- * 
- * 
- *   {
-    name: 'Logos',
-    component: Logos,
-  },
-    {
-    name: 'DrawerChronos',
-    component: ChronosDrawer,
-  },
-  {
-    name: 'DrawerStoma',
-    component: StomaDrawer,
-  },
- */
 export const chronosCStack = [
   {
     name: 'Agave',

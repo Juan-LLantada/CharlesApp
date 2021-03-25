@@ -7,19 +7,19 @@ import {
   StyleSheet,
   ScrollView,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import {Formik} from 'formik';
 import {register} from '../../Constants/validations';
 import {regFields} from '../../Constants/inputfields';
 import {elevation10} from '../../Constants/styles';
 import {Alert} from '../../Constants/Icons/design';
-import {Button} from '../../Components/Logos';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {Item, Input as InputComponent} from 'native-base';
 import {Logo} from '../../Components/Login';
 import {registrar} from '../../Assets/Functions/register';
 import {Footer} from '../../Components/Registro/index';
-import {Header} from '../../Components/Global';
+import {RightArrow} from '../../Constants/Icons/design';
 
 class Register extends Component {
   constructor(props) {
@@ -38,7 +38,6 @@ class Register extends Component {
     };
     return (
       <View style={{flex: 1, backgroundColor: '#f8f6f7'}}>
-        <Header navigation={this.props.navigation} titulo={'Registro'} />
         <ImageBackground source={Bg} style={styles.container}>
           <ScrollView style={{flex: 1}}>
             <View style={[styles.dataPart, elevation10]}>
@@ -81,10 +80,12 @@ class Register extends Component {
                       </View>
                     ))}
                     <View style={styles.btnRegV}>
-                      <Button
-                        text={'Registrar!'}
-                        press={formikProps.handleSubmit.bind(this)}
-                      />
+                      <TouchableOpacity
+                        onPress={formikProps.handleSubmit}
+                        style={styles.button}>
+                        <Text style={styles.btnText}>Registrarme</Text>
+                        <RightArrow />
+                      </TouchableOpacity>
                     </View>
                   </React.Fragment>
                 )}
@@ -190,5 +191,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  button: {
+    alignSelf: 'center',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'rgba(60,154,175,1)',
+    justifyContent: 'space-between',
+    borderRadius: 50,
+    padding: 10,
+    paddingHorizontal: 20,
+    margin: 20,
+  },
+  btnText: {color: 'white', fontSize: 15, fontWeight: 'bold'},
 });
 export default Register;

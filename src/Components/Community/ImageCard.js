@@ -9,16 +9,16 @@ export default class ImageCard extends Component {
     super(props);
     this.state = {};
   }
-
   render() {
     let string = this.props.uri.split('&&');
-    console.log(string[1]);
-
     return (
       <Card>
         {string[1] && <CardHeader name={string[1]} />}
         <CardItem cardBody>
-          <Bios width={300} height={300} />
+          <Image
+            source={{uri: this.props.uri}}
+            style={{width: '100%', height: 400}}
+          />
         </CardItem>
         <CardItem>
           <Body style={styles.cardFooter}>

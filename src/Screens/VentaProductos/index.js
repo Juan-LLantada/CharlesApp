@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {Form} from '../../Constants/Icons/design';
 import {width} from '../../Constants/styles';
-import {Header} from '../../Components/Global';
 import {VentasEBIOS, Formulario} from '../../Components/Ventas';
 import {retrieveData} from '../../Constants/asyncStorage';
 export default class VentaProductos extends Component {
@@ -39,7 +38,6 @@ export default class VentaProductos extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header titulo={'VENTAS'} navigation={this.props.navigation} />
         <View style={styles.bottomContainer}>
           <ScrollView>
             <View style={styles.bottomView}>
@@ -58,6 +56,7 @@ export default class VentaProductos extends Component {
                 <Form style={{marginTop: 10}} />
               </View>
             </View>
+            <Formulario function={this.confirmOrder.bind(this)} />
           </ScrollView>
         </View>
       </View>

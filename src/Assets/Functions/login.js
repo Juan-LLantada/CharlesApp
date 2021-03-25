@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import {Alert} from 'react-native';
-
+import {storeData} from '../../Constants/asyncStorage';
 export function postLogin(email, password, navigation) {
   fetch('http://161.35.105.244/api/Users/login', {
     method: 'POST',
@@ -51,10 +51,6 @@ function getUser(data, navigation) {
       return Promise.all([statusCode, data]);
     })
     .then(response => {
-      console.log('AQUI USER INFO');
-
-      console.log(response[1]);
-
       _storeData(response[1], data.id, navigation);
     })
     .catch(err => {
@@ -63,20 +59,19 @@ function getUser(data, navigation) {
 }
 
 _storeData = async (data, access, navigation) => {
-  let datos = {
-    accessToken: access,
-    email: data.email,
-    name: data.name,
-    userId: data.id,
-  };
   try {
-    await AsyncStorage.setItem('login', JSON.stringify(datos), () => {
-      Alert.alert('Login exitoso!', 'Gracias por iniciar sesión.', [
-        {
-          text: 'OK',
-          onPress: () => navigation.navigate('Home'),
-        },
-      ]);
-    });
+    let datos = {
+      accessToken: access,
+      email: data.email,
+      name: data.name,
+      userId: data.id,
+    };
+    await storeData(datos, 'Login');
+    Alert.alert('Login exitoso!', 'Gracias por iniciar sesión.', [
+      {
+        text: 'OK',
+        onPress: () => navigation.navigate('Logos'),
+      },
+    ]);
   } catch (error) {}
 };

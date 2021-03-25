@@ -13,17 +13,21 @@ import {
   AllPhotos,
   Favorites,
 } from '../../Components/Community/index';
-import {getPhotoList} from '../../Assets/Functions/community';
-export default class Comunidad extends React.Component {
+import {getPhotoList} from '../../Actions/uploadPhoto';
+import {connect} from 'react-redux';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+  user: state.userLoginValues,
+  onUploadPhoto: state.uploadValues.onUploadPhoto,
+});
+class Comunidad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: [],
       all: true,
       favorites: false,
-      indicator: true,
     };
-    this.getPhotos();
+    this.props.dispatch(getPhotoList());
   }
 
   tabFunction(all, fav) {
@@ -32,32 +36,6 @@ export default class Comunidad extends React.Component {
       favorites: fav,
     });
   }
-
-  getPhotos = async () => {
-    this.setState({
-      indicator: true,
-    });
-    try {
-      const value = await getPhotoList();
-      if (value !== null) {
-        this.setState(
-          {
-            url: value,
-          },
-          () => {
-            console.log(this.state.url);
-            this.setState({
-              indicator: false,
-            });
-          },
-        );
-      } else {
-        this.setState({
-          indicator: false,
-        });
-      }
-    } catch (error) {}
-  };
 
   render() {
     return (
@@ -73,12 +51,7 @@ export default class Comunidad extends React.Component {
               {this.state.indicator && (
                 <ActivityIndicator size={'large'} color={'lightgrey'} />
               )}
-              {this.state.all && !this.state.indicator && (
-                <AllPhotos
-                  url={this.state.url}
-                  getPhotos={this.getPhotos.bind(this)}
-                />
-              )}
+              {this.state.all && !this.props.onUploadPhoto && <AllPhotos />}
               {this.state.favorites && <Favorites />}
             </View>
           </View>
@@ -87,6 +60,7 @@ export default class Comunidad extends React.Component {
     );
   }
 }
+export default connect(mapStateToProps)(Comunidad);
 /**
  *
  */

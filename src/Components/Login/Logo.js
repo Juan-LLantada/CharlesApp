@@ -12,7 +12,7 @@ export default class Logo extends Component {
   render() {
     return (
       <View style={styles.container3}>
-        <Bios width={155} height={155} />
+        <Bios width={200} height={200} />
       </View>
     );
   }
@@ -21,14 +21,12 @@ export default class Logo extends Component {
 const styles = StyleSheet.create({
   container3: {
     alignSelf: 'center',
-    width: 155,
-    margin: 15,
     backgroundColor: 'white',
-    height: 155,
     borderRadius: 155,
     justifyContent: 'center',
     ...elevation10,
     alignItems: 'center',
+    overflow: 'hidden',
   },
   logo: {height: 155, width: 155, borderRadius: 155},
 });

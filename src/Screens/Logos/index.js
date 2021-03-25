@@ -1,23 +1,33 @@
 import React, {Component} from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   ImageBackground,
   SafeAreaView,
-  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {CardListC} from '../../Components/Logos/Community';
 import {CardListS} from '../../Components/Logos/Socials';
-import {Header, SectionDivider, CardList} from '../../Components/Logos/index';
+import {
+  Header,
+  SectionDivider,
+  CardList,
+  ButtonView,
+} from '../../Components/Logos/index';
 import {elevation10} from '../../Constants/styles';
-
-export default class Logos extends Component {
+import {getUser} from '../../Actions/userValues';
+import {connect} from 'react-redux';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+});
+class Logos extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      values: [],
+    };
+    this.props.dispatch(getUser());
   }
   render() {
     return (
@@ -30,13 +40,7 @@ export default class Logos extends Component {
               <CardList navigation={this.props.navigation} />
               <SectionDivider title={'Nuestros servicios'} />
               <CardListC navigation={this.props.navigation} />
-              <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={{color: 'black', fontWeight: 'bold'}}>
-                    INICIA SESIÓN!
-                  </Text>
-                </TouchableOpacity>
-              </View>
+              <ButtonView />
               <SectionDivider title={'Contacto y redes sociales'} />
               <CardListS navigation={this.props.navigation} />
             </ScrollView>
@@ -46,7 +50,7 @@ export default class Logos extends Component {
     );
   }
 }
-
+export default connect(mapStateToProps)(Logos);
 const styles = StyleSheet.create({
   flex1: {
     flex: 1,
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 5,
   },
   buttonView: {
     flex: 1,

@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  ImageBackground,
-  ActivityIndicator,
-} from 'react-native';
-import {Aviso, Upload as UploadComp, Level1} from '../../Components/Upload';
+import {View, StyleSheet, ScrollView, ImageBackground} from 'react-native';
+import {Level1, ImageOverlay} from '../../Components/Upload';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {height, width} from '../../Constants/styles';
 import {handleUploadPhoto} from '../../Assets/Functions/upload';
@@ -36,7 +30,7 @@ class Upload extends Component {
   };
   uploadPhoto = async () => {
     let value = await handleUploadPhoto(
-      this.props.navigation,
+      this.props.navRedux,
       this.props.photo,
       this.state.values.name,
     );
@@ -56,12 +50,7 @@ class Upload extends Component {
         <ImageBackground source={Bg} style={styles.bg}>
           <View style={styles.containter}>
             {this.props.level == 1 && <Level1 />}
-            {this.props.level == 2 && (
-              <UploadComp
-                handleUploadPhoto={this.uploadPhoto.bind(this)}
-                uri={this.state.photo.uri}
-              />
-            )}
+            {this.props.level == 2 && <ImageOverlay />}
           </View>
         </ImageBackground>
       </ScrollView>

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {elevation10} from '../../Constants/styles';
 
-class Register extends Component {
+class OrderConfirm extends Component {
   constructor(props) {
     super(props);
   }
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-export default Register;
+export default OrderConfirm;

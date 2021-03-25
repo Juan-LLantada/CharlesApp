@@ -3,52 +3,37 @@ import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 import {Mundito} from '../../Constants/Icons/design';
 import {Divider} from 'react-native-elements';
 import {width} from '../../Constants/styles';
-import {retrieveData} from '../../Constants/asyncStorage';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {Banner} from './';
-export default class Welcome extends Component {
+import {connect} from 'react-redux';
+import {welcomeText1, welcomeText2} from '../../Constants/data';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+  user: state.userLoginValues,
+});
+class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      values: [],
-    };
-    this._retrieveData();
+    this.state = {};
   }
-  _retrieveData = async () => {
-    try {
-      let data = await retrieveData('Login');
-      this.setState({
-        values: JSON.parse(data),
-      });
-    } catch (error) {}
-  };
 
   render() {
     return (
       <ImageBackground source={Bg} style={styles.container}>
         <View style={styles.biosLogo}>
           <Text style={styles.title1}>Bienvenido</Text>
-          <Text style={[styles.title1, styles.title2]}>
-            @{this.state.values.name}
-          </Text>
+          <Text style={styles.titleGreen}>@{this.props.user.name}</Text>
           <Divider style={styles.divider} />
-          <Text style={styles.welcome}>
-            Estás a solo un paso de proyectar tu cultivo a la comunidad! Ahora
-            puedes interactuar con nosotros compartiendo una fotografía de tus
-            cultivos
-          </Text>
+          <Text style={styles.welcome}>{welcomeText1}</Text>
           <Mundito style={{width: 30, height: 30}} />
-          <Text style={styles.welcome}>
-            Solo da clic en nuestro botón{'\n'}"Compartir imagen"{'\n'}para que
-            todos puedan verla!
-          </Text>
+          <Text style={styles.welcome}>{welcomeText2}</Text>
         </View>
-        <Banner navigation={this.props.navigation} />
+        <Banner />
       </ImageBackground>
     );
   }
 }
-
+export default connect(mapStateToProps)(Welcome);
 const styles = StyleSheet.create({
   container: {width: '100%'},
   title1: {
@@ -58,10 +43,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
   },
-  title2: {
+  titleGreen: {
     color: '#89D00B',
+    paddingHorizontal: 5,
+    fontWeight: 'bold',
+    fontSize: 30,
+    textAlign: 'center',
   },
-
   biosLogo: {
     flexDirection: 'column',
     padding: 10,
@@ -78,7 +66,6 @@ const styles = StyleSheet.create({
   welcome: {
     color: 'black',
     textAlign: 'center',
-    // fontStyle: 'italic',
     fontSize: 20,
     margin: 10,
   },

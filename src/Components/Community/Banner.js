@@ -2,8 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Camera} from '../../Constants/Icons/design';
 import {elevation10} from '../../Constants/styles';
-
-export default class Banner extends React.Component {
+import {connect} from 'react-redux';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+  user: state.userLoginValues,
+});
+class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +20,7 @@ export default class Banner extends React.Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            this.props.navigation.navigate('Upload');
+            this.props.navRedux.navigate('Upload');
           }}>
           <Text style={styles.buttont}>Compartir imagen</Text>
           <View style={styles.icon}>
@@ -27,7 +31,7 @@ export default class Banner extends React.Component {
     );
   }
 }
-
+export default connect(mapStateToProps)(Banner);
 const styles = StyleSheet.create({
   container: {
     width: '100%',

@@ -32,15 +32,16 @@ export default class Button extends Component {
 const styles = StyleSheet.create({
   button: {
     alignSelf: 'center',
-    width: 200,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: '#5f7149',
+    backgroundColor: 'rgba(60,154,175,1)',
     justifyContent: 'space-between',
-    borderRadius: 20,
+    borderRadius: 50,
+    padding: 10,
+    paddingHorizontal: 20,
     margin: 20,
-    ...elevation10,
   },
   bg: {
     width: '100%',
@@ -49,5 +50,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnText: {color: 'white', margin: 15},
+  btnText: {color: 'white', fontSize: 15, fontWeight: 'bold'},
 });

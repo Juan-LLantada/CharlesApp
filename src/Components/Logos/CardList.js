@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Card} from './index';
 import {logos} from '../../Constants/data';
 import {connect} from 'react-redux';
 import {storeData} from '../../Constants/asyncStorage';

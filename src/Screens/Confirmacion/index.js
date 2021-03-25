@@ -8,65 +8,33 @@ import {
   Alert,
 } from 'react-native';
 import {width} from '../../Constants/styles';
-import {Header} from '../../Components/Global';
+import {orderFailed, orderSuccess} from '../../Constants/alerts';
 import {OrderConfirm} from '../../Components/Confirmacion';
-
+import {POST} from '../../Constants/fetchFunctions';
 export default class Confirmacion extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
   regresar() {
-    this.props.navigation.navigate('VentaProductos');
+    this.props.navigation.navigate('Ventas');
   }
-
-  confirm(data) {
-    fetch('https://simplemailsender.p.rapidapi.com/SendMails/Send', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-rapidapi-host': 'simplemailsender.p.rapidapi.com',
-        'x-rapidapi-key': '60ab4e3679msha8573372d26a71dp19b5bbjsn35a931ff7e93',
+  confirm = async () => {
+    let data = this.setData();
+    let response = await POST(
+      {
+        Destinatario: 'alopez@epsilonbios.com',
+        texto: JSON.stringify({data}),
       },
-      body: JSON.stringify({
-        Correo_Delivery: 'alopez@epsilonbios.com',
-        Mensjae: JSON.stringify({data}),
-      }),
-    })
-      .then(res => {
-        this.state.statusCode = res.status;
-        const data = res.json();
-        return Promise.all([this.state.statusCode, data]);
-      })
-      .then(response => {
-        response[0] == 200
-          ? Alert.alert('Listo!', 'Pedido exitoso.', [
-              {
-                text: 'Ok',
-                onPress: () => this.props.navigation.navigate('VentaProductos'),
-              },
-            ])
-          : Alert.alert(
-              'Error',
-              'El pedido no ha sido completado, favor de comunicarse con Epsilon Bios.',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () =>
-                    this.props.navigation.navigate('VentaProductos'),
-                },
-              ],
-            );
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+      'Correos/SendMail',
+    );
+    response[0] == 200
+      ? orderSuccess(this.props.navigation)
+      : orderFailed(this.props.navigation);
+  };
 
-  render() {
-    const datos = this.props.navigation.state.params.data[0];
+  setData() {
+    const datos = this.props.route.params.data[0];
     const data = [
       {titulo: 'Nombre', value: datos.name},
       {titulo: 'Nombre del producto', value: datos.productName},
@@ -76,21 +44,24 @@ export default class Confirmacion extends Component {
       {titulo: 'Compañia de entrega', value: datos.compañia},
       {titulo: 'Fecha de entrega', value: datos.fecha},
     ];
+    return data;
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Header titulo={' '} />
         <View style={styles.bottomContainer}>
           <ScrollView>
             <View style={styles.subView}>
-              <Text style={[styles.title1, styles.filosofia]}>
+              <Text style={styles.title1}>
                 - Solo falta confirmar tu orden -
               </Text>
             </View>
-            <OrderConfirm data={data} />
+            <OrderConfirm data={this.setData()} />
             <View style={styles.btnRegV}>
               <TouchableOpacity
                 onPress={() => {
-                  this.confirm(data);
+                  this.confirm();
                 }}
                 style={styles.btn}>
                 <Text style={styles.btnTxt}>Enviar pedido</Text>
@@ -123,8 +94,7 @@ const styles = StyleSheet.create({
   title1: {
     paddingHorizontal: 5,
     color: '#000000',
-    fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 20,
   },
   title2: {
     color: '#89D00B',
@@ -143,20 +113,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f6f7',
     margin: 10,
     marginBottom: 20,
-  },
-  filosofia: {
-    color: '#ffffff',
-    paddingTop: 0,
-    textAlign: 'center',
-    fontSize: 15,
-    letterSpacing: 3,
-    paddingHorizontal: 0,
-  },
-  image: {
-    width: width / 2,
-    margin: 10,
-    height: 200,
-    borderBottomRightRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   principalText: {
     fontSize: 20,

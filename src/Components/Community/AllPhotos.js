@@ -9,8 +9,18 @@ import {
 } from 'react-native';
 import {ImageCard} from './index';
 import {Reload} from '../../Constants/Icons/design';
+import {connect} from 'react-redux';
+import {getPhotoList} from '../../Actions/uploadPhoto';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+  level: state.uploadValues.level,
+  photo: state.uploadValues.photo,
+  onUploadPhoto: state.uploadValues.onUploadPhoto,
+  photoList: state.uploadValues.photoList,
+  user: state.userLoginValues,
+});
 
-export default class AllPhotos extends Component {
+class AllPhotos extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,31 +31,33 @@ export default class AllPhotos extends Component {
   render() {
     return (
       <ScrollView style={{flex: 1}}>
-        <TouchableOpacity
-          onPress={() => {
-            this.props.getPhotos();
-          }}
-          style={{padding: 10, justifyContent: 'center', alignItems: 'center'}}>
-          <Reload style={{width: 25, height: 25}} />
-          <Text>Volver a cargar!</Text>
-        </TouchableOpacity>
-        {this.state.url && (
-          <View style={{flex: 1, backgroundColor: '#f8f6f7'}}>
-            {this.props.url.map((image, index) => (
-              <View style={styles.imageV} key={index}>
-                {image && <ImageCard uri={image} />}
-                {!image && (
-                  <ActivityIndicator size={'small'} color={'lightgrey'} />
-                )}
-              </View>
-            ))}
-          </View>
-        )}
+        <View style={{flex: 1, backgroundColor: '#ffffff'}}>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.dispatch(getPhotoList());
+            }}
+            style={{
+              padding: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Reload style={{width: 25, height: 25}} />
+            <Text>Volver a cargar!</Text>
+          </TouchableOpacity>
+          {this.props.photoList.map((image, index) => (
+            <View style={styles.imageV} key={index}>
+              {image && <ImageCard uri={image} />}
+              {!image && (
+                <ActivityIndicator size={'small'} color={'lightgrey'} />
+              )}
+            </View>
+          ))}
+        </View>
       </ScrollView>
     );
   }
 }
-
+export default connect(mapStateToProps)(AllPhotos);
 const styles = StyleSheet.create({
   imageV: {
     flex: 1,

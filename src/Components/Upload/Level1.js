@@ -1,44 +1,116 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+  PermissionsAndroid,
+  Image,
+} from 'react-native';
 import {elevation10} from '../../Constants/styles';
 import {Camera, Back} from '../../Constants/Icons/design';
 import {Aviso} from './index';
-import ImagePicker from 'react-native-image-picker';
 import {setLevel, setPhoto} from '../../Actions/uploadPhoto';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {connect} from 'react-redux';
 const mapStateToProps = state => ({
   navRedux: state.navRedux.navRedux,
 });
-const photoPickerOptions = {
-  title: 'Seleccionar foto',
-  takePhotoButtonTitle: 'Tomar una foto',
-  chooseFromLibraryButtonTitle: 'Elegir de la biblioteca',
-  cancelButtonTitle: 'Cancelar',
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
+requestCameraPermission = async () => {
+  if (Platform.OS === 'android') {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: 'Camera Permission',
+          message: 'App needs camera permission',
+        },
+      );
+      // If CAMERA Permission is granted
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    } catch (err) {
+      console.warn(err);
+      return false;
+    }
+  } else return true;
 };
-
+requestExternalWritePermission = async () => {
+  if (Platform.OS === 'android') {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          title: 'External Storage Write Permission',
+          message: 'App needs write permission',
+        },
+      );
+      // If WRITE_EXTERNAL_STORAGE Permission is granted
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    } catch (err) {
+      console.warn(err);
+      alert('Write permission err', err);
+    }
+    return false;
+  } else return true;
+};
 class Level1 extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  chooseOption = async () => {
-    //DISPLAYS DE IMAGE PICKER TO TAKE O CHOOSE A PICTURE
-    try {
-      ImagePicker.showImagePicker(photoPickerOptions, response => {
+
+  captureImage = async type => {
+    let options = {
+      mediaType: type,
+      quality: 1,
+      saveToPhotos: true,
+    };
+    let isCameraPermitted = await requestCameraPermission();
+    let isStoragePermitted = await requestExternalWritePermission();
+    if (isCameraPermitted && isStoragePermitted) {
+      launchCamera(options, response => {
         console.log('Response = ', response);
-        if (response.error) {
-          //log error
-          console.log('ImagePicker Error: ', response.error);
-        } else if (response.didCancel) {
-        } else {
-          this.set(response);
+        if (response.didCancel) {
+          return;
+        } else if (response.errorCode == 'camera_unavailable') {
+          alert(
+            'Lo sentimos, la cámara no esta disponible en este dispositivo.',
+          );
+          return;
+        } else if (response.errorCode == 'permission') {
+          alert('Permission not satisfied');
+          return;
+        } else if (response.errorCode == 'others') {
+          alert(response.errorMessage);
+          return;
         }
+        this.set(response);
       });
-    } catch (error) {}
+    }
+  };
+  chooseFile = type => {
+    let options = {
+      mediaType: type,
+      quality: 1,
+    };
+    launchImageLibrary(options, response => {
+      console.log('Response = ', response);
+      if (response.didCancel) {
+        console.log('cancelado');
+        return;
+      } else if (response.errorCode == 'camera_unavailable') {
+        alert('Lo sentimos, la cámara no esta disponible en este dispositivo.');
+        return;
+      } else if (response.errorCode == 'permission') {
+        alert('Permission not satisfied');
+        return;
+      } else if (response.errorCode == 'others') {
+        alert(response.errorMessage);
+        return;
+      }
+      this.set(response);
+    });
   };
 
   set = async response => {
@@ -53,9 +125,19 @@ class Level1 extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            this.chooseOption();
+            this.chooseFile();
           }}>
-          <Text style={styles.btnTxt}>ESCOGE UNA FOTO!</Text>
+          <Text style={styles.btnTxt}>ESCOGER FOTO DE LA BIBLIOTECA</Text>
+          <View style={styles.icon}>
+            <Camera width={50} height={50} />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.captureImage();
+          }}>
+          <Text style={styles.btnTxt}>TOMAR UNA FOTO</Text>
           <View style={styles.icon}>
             <Camera width={50} height={50} />
           </View>

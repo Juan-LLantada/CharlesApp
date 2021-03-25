@@ -171,15 +171,15 @@ export const logos = [
 
 export const community = [
   {
-    title: 'AMIGOS DE LOS AMANCERES',
-    Icon: Amaneceres,
-    route: 'Comunidad',
-    size: {width: width / 2.1, height: width / 2.1},
-  },
-  {
     title: 'VENTA DE PRODUCTOS',
     Icon: Productos,
     route: 'Ventas',
+    size: {width: width / 2.1, height: width / 2.1},
+  },
+  {
+    title: 'AMIGOS DE LOS AMANCERES',
+    Icon: Amaneceres,
+    route: 'Comunidad',
     size: {width: width / 2.1, height: width / 2.1},
   },
 ];
@@ -208,3 +208,7 @@ export const socials = [
     url: 'https://instagram.com/epsilonbios?igshid=im2vgkdiytwc',
   },
 ];
+
+export const welcomeText1 =
+  'Estás a solo un paso de proyectar tu cultivo a la comunidad! Ahora puedes interactuar con nosotros compartiendo una fotografía de tus cultivos';
+export const welcomeText2 = `Solo da clic en nuestro botón${'\n'}"Compartir imagen"${'\n'}para que todos puedan verla!`;

@@ -42,8 +42,6 @@ export function registrar(body, navigation) {
       return Promise.all([statusCode, data]);
     })
     .then(response => {
-      console.log(response);
-      console.log('REGISTRO');
       if (response[0] == 200) {
         Alert.alert('Registro exitoso!', 'Gracias por unirte a Epsilon Bios.', [
           {

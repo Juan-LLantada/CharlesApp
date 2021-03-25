@@ -1,12 +1,9 @@
-import ImagePicker from 'react-native-image-picker';
-import {Alert} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import moment from 'moment/min/moment-with-locales';
 
 export const createFormData = (photo, body, name) => {
   const data = new FormData();
-  let string1 = moment()
-    .format()
-    .replace(':', '_');
+  let string1 = moment().format().replace(':', '_');
   let string2 = string1.replace('-', '_');
   let extension = photo.type.split('/');
 
@@ -19,14 +16,13 @@ export const createFormData = (photo, body, name) => {
   return data;
 };
 
-export function handleUploadPhoto(navigation, photo, name) {
+export function handleUploadPhoto(photo, name) {
   let value = fetch('http://161.35.105.244/api/archivos/imagenes/upload', {
     method: 'POST',
     body: createFormData(photo, {userId: '123'}, name),
   })
     .then(response => {
       console.log(response);
-
       Alert.alert('Perfecto!', 'Tu foto se ha subido con éxito!', [
         {
           text: 'OK',

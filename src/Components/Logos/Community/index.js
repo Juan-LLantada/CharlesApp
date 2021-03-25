@@ -1,2 +1,3 @@
 import CardListC from './CardListC';
-export { CardListC};
+import NavIcon from './NavIcon';
+export {CardListC, NavIcon};

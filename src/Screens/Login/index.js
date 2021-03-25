@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {TextBox, Logo, RegistroView} from '../../Components/Login';
-import {Header} from '../../Components/Global';
 
 export default class Login extends Component {
   constructor(props) {
@@ -23,7 +22,6 @@ export default class Login extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
-        <Header navigation={this.props.navigation} titulo={'INICIA SESIÓN!'} />
         <ScrollView style={{flex: 1}}>
           <ImageBackground source={Bg} style={styles.container}>
             <View style={styles.centerView}>
