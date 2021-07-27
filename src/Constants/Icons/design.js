@@ -18,7 +18,10 @@ import Login from '../../Assets/Svg/Design/Login.svg';
 import Form from '../../Assets/Svg/Design/form.svg';
 import Home from '../../Assets/Svg/Design/home.svg';
 import Back from '../../Assets/Svg/Design/back.svg';
- 
+import Menu from '../../Assets/Svg/Design/menu.svg';
+import Plus from '../../Assets/Svg/Design/plus.svg';
+import Minus from '../../Assets/Svg/Design/minus.svg';
+
 export {
   User,
   Password,
@@ -37,7 +40,10 @@ export {
   Alert,
   Upload,
   Login,
-  Form, 
+  Form,
   Home,
-  Back
-}; 
+  Back,
+  Menu,
+  Plus,
+  Minus,
+};

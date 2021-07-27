@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import {
   Welcome,
-  Banner,
   MenuButton,
   AllPhotos,
   Favorites,
@@ -47,11 +46,11 @@ class Comunidad extends React.Component {
               <Text style={styles.text}>Checa nuestros cultivos!</Text>
             </View>
             <MenuButton tabFunction={this.tabFunction.bind(this)} />
-            <View style={{width: '100%', height: 'auto', paddingTop: 10}}>
+            <View style={styles.pics}>
               {this.state.indicator && (
                 <ActivityIndicator size={'large'} color={'lightgrey'} />
               )}
-              {this.state.all && !this.props.onUploadPhoto && <AllPhotos />}
+              {this.state.all && <AllPhotos />}
               {this.state.favorites && <Favorites />}
             </View>
           </View>
@@ -79,4 +78,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {color: 'white', fontWeight: 'bold'},
+  pics: {width: '100%', height: 'auto', paddingTop: 10},
 });

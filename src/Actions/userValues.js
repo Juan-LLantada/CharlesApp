@@ -1,6 +1,6 @@
 import {POST, GET} from '../Constants/fetchFunctions';
 import {storeData, retrieveData} from '../Constants/asyncStorage';
-import {failedLogin} from '../Constants/alerts';
+import {failedLogin, emptyForm, wrongData} from '../Constants/alerts';
 
 export const setUser = user => ({
   type: 'SET_USER',
@@ -36,6 +36,10 @@ export const userLogin = (email, password, navigation) => {
         } else {
           failedLogin();
         }
+      } else if (response[0] == 400) {
+        emptyForm();
+      } else if (response[0] == 401) {
+        wrongData();
       } else {
         failedLogin();
       }
@@ -52,7 +56,6 @@ export const getUser = () => {
         let user = await GET(`Users/${data.userId}?access_token=${data.token}`);
         if (user[0] == 200) {
           await dispatch(setUser(user[1]));
-          console.log('SI SE HIZO YEIII');
         }
       }
     } catch (error) {}

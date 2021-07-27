@@ -36,20 +36,13 @@ class AllPhotos extends Component {
             onPress={() => {
               this.props.dispatch(getPhotoList());
             }}
-            style={{
-              padding: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+            style={styles.btn}>
             <Reload style={{width: 25, height: 25}} />
             <Text>Volver a cargar!</Text>
           </TouchableOpacity>
           {this.props.photoList.map((image, index) => (
             <View style={styles.imageV} key={index}>
-              {image && <ImageCard uri={image} />}
-              {!image && (
-                <ActivityIndicator size={'small'} color={'lightgrey'} />
-              )}
+              <ImageCard uri={image} />
             </View>
           ))}
         </View>
@@ -64,5 +57,10 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '100%',
     height: 'auto',
+  },
+  btn: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

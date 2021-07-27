@@ -20,9 +20,7 @@ export default class FechaEntrega extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.label}>
-          <Text style={{letterSpacing: 2}}>
-            Proporciona una fecha de entrega
-          </Text>
+          <Text style={styles.labelTxt}>Proporciona una fecha de entrega</Text>
         </View>
         <View>
           <DatePicker
@@ -67,6 +65,15 @@ const styles = StyleSheet.create({
     borderColor: '#D8D3D3',
     marginBottom: 10,
     alignItems: 'center',
+  },
+
+  labelTxt: {
+    textAlign: 'center',
+    marginVertical: 10,
+    textTransform: 'uppercase',
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: 'grey',
   },
   container: {flex: 1, width: '100%', paddingBottom: 10},
   containerStyle: {

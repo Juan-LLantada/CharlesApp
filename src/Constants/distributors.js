@@ -1,16 +1,12 @@
-import {Ananas, Ansa, CruzNegra, Patsa} from './Icons/distributors';
+import {
+  Ananas,
+  Ansa,
+  CruzNegra,
+  Patsa,
+  ServicioAgro,
+} from './Icons/distributors';
 
 export const distribuidor1 = [
-  {
-    titulo1: 'ANSA',
-    titulo2: 'Sucursal',
-    Dirección: ' ',
-    telefonos: `Tel: 01 800 638 2672 y ${'\n'}Teléfono local: 3337930390`,
-    Imagen: Ansa,
-  },
-];
-
-export const distribuidor2 = [
   {
     titulo1: 'PATSA',
     titulo2: 'Sucursal',
@@ -20,20 +16,30 @@ export const distribuidor2 = [
   },
 ];
 
-export const distribuidor3 = [
+export const distribuidor2 = [
   {
     titulo1: 'Ananas',
     titulo2: 'Sucursal Isla',
     Dirección:
-      'c. Mariano Matamoros #593 col. Centro, (entre Emiliano Zapata y R. Flores Magón), ciudad Isla Veracruz.',
+      'C. Mariano Matamoros #593 col. Centro, (entre Emiliano Zapata y R. Flores Magón), ciudad Isla Veracruz.',
     telefonos: 'Tel: 283 87 4 10 43',
     Imagen: Ananas,
   },
   {
+    titulo1: 'Servicio Agrotécnico',
+    titulo2: ' ',
+    Dirección: '91680, Calle Independencia 36, Centro, José Crdel, Ver.',
+    telefonos: 'Tel: 296 962 0400',
+    Imagen: ServicioAgro,
+  },
+];
+
+export const distribuidor3 = [
+  {
     titulo1: 'Ananas',
     titulo2: 'Sucursal Los Tigres',
     Dirección:
-      'c. 5 de mayo,(frente al parque municipal Los Tigres), municipio de Juan Rodriguez Clara.',
+      'C. 5 de mayo,(frente al parque municipal Los Tigres), municipio de Juan Rodriguez Clara.',
     telefonos: 'Tel: 283 87 7 05 09',
     Imagen: Ananas,
   },
@@ -41,7 +47,7 @@ export const distribuidor3 = [
     titulo1: 'Ananas',
     titulo2: 'Sucursal Bonita',
     Dirección:
-      'av. 16 de septiembre, Esquina Macedonio Alcalá col. Juan López Cruz Loma, Bonita, Oaxaca.',
+      'Av. 16 de septiembre, Esquina Macedonio Alcalá col. Juan López Cruz Loma, Bonita, Oaxaca.',
     telefonos: 'Tel: 281 87 2 21 34',
     Imagen: Ananas,
   },
@@ -49,13 +55,10 @@ export const distribuidor3 = [
     titulo1: 'Ananas',
     titulo2: 'Sucursal Los Robles',
     Dirección:
-      'carretera federal Medellín-Paso del Toro km 3.5 col. La Y griega, Los Robles, Veracruz.',
+      'Carretera Federal Medellín-Paso del Toro km 3.5 col. La Y griega, Los Robles, Veracruz.',
     telefonos: 'Tel: 283 104 05 69',
     Imagen: Ananas,
   },
-];
-
-export const distribuidor4 = [
   {
     titulo1: 'Cruz Negra Agroquímicos',
     titulo2: 'Sucursal',
@@ -65,3 +68,15 @@ export const distribuidor4 = [
     Imagen: CruzNegra,
   },
 ];
+
+export const distribuidor4 = [
+  {
+    titulo1: 'ANSA',
+    titulo2: 'Sucursal',
+    Dirección: ' ',
+    telefonos: `Tel: 01 800 638 2672 y ${'\n'}Teléfono local: 3337930390`,
+    Imagen: Ansa,
+  },
+];
+
+export const distribuidor5 = [{}];

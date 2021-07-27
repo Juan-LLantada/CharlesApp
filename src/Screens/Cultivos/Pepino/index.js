@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, ScrollView, View, Image, Text} from 'react-native';
 import {width} from '../../../Constants/styles';
 import {Divider} from 'react-native-elements';
-import Header from '../../../Assets/Img/HeadersCultivos/ajo.png';
+import Header from '../../../Assets/Img/HeadersCultivos/pepino.png';
 import {EBios} from '../../../Constants/Icons/logos';
 import {ColorBar, Footer} from '../../../Components/Cultivos';
 

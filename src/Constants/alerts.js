@@ -8,6 +8,22 @@ export function failedLogin() {
   ]);
 }
 
+export function emptyForm() {
+  Alert.alert('Login fallido.', 'Favor de rellenar todos lo campos.', [
+    {
+      text: 'OK',
+    },
+  ]);
+}
+
+export function wrongData() {
+  Alert.alert('Lo sentimos.', 'Usuario o contraseña incorrectos.', [
+    {
+      text: 'OK',
+    },
+  ]);
+}
+
 export function logOut() {
   Alert.alert('Cerrará sesión', 'Desea continuar?', [
     {
@@ -86,6 +102,30 @@ export function orderFailed(navigation) {
 
 export function failedOp() {
   Alert.alert('Lo sentimos', 'Algo salió mal, intente más tarde.', [
+    {
+      text: 'OK',
+    },
+  ]);
+}
+
+export function passChangeSucces(navigation) {
+  Alert.alert(
+    'Perfecto!',
+    'Tu contraseña se ha cambiado con éxito!',
+    [
+      {
+        text: 'OK',
+        onPress: () => {
+          navigation.navigate('Login');
+        },
+      },
+    ],
+    {cancelable: false},
+  );
+}
+
+export function noExistingEmail() {
+  Alert.alert('Lo sentimos', 'Ese correo no se encuentra registrado.', [
     {
       text: 'OK',
     },

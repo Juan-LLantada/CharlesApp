@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {DrawerActions} from '@react-navigation/native';
 import {OatRight, OatLeft, Back} from '../../Constants/Icons/design';
 import {createStackNavigator} from '@react-navigation/stack';
 import {mainStack} from '../../Constants/screens';
@@ -13,10 +11,6 @@ const options = {
   },
   headerLeftContainerStyle: {
     paddingHorizontal: 20,
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
   },
 };
 // OCUPAS MYTAB, FIELDTAB & STORAGE TAB
@@ -31,7 +25,7 @@ export function MainStackNav() {
           options={({navigation}) => ({
             ...options,
             headerShown: item.shown,
-            headerTitle: props => (
+            headerRight: props => (
               <View style={styles.titleView}>
                 <OatLeft />
                 <Text style={styles.title}>{item.label}</Text>
@@ -40,10 +34,12 @@ export function MainStackNav() {
             ),
             headerLeft: props => (
               <TouchableOpacity
+                style={styles.backButton}
                 onPress={() => {
                   navigation.navigate('Logos');
                 }}>
                 <Back width={30} height={30} />
+                <Text style={styles.title}>Inicio</Text>
               </TouchableOpacity>
             ),
           })}
@@ -64,6 +60,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   titleView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backButton: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

@@ -13,7 +13,9 @@ export default class ImageCard extends Component {
     let string = this.props.uri.split('&&');
     return (
       <Card>
-        {string[1] && <CardHeader name={string[1]} />}
+        <CardHeader
+          name={this.props.uri.search('FAV') != -1 ? string[2] : string[1]}
+        />
         <CardItem cardBody>
           <Image
             source={{uri: this.props.uri}}

@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
-import {CheckBox} from 'react-native-elements';
+import CheckBox from '@react-native-community/checkbox';
 
 export default class CompañiaEntrega extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      otra: false,
-      fija: true,
       otherCompañy: '',
+      selected: 'Paquetería TRESGUERRAS',
     };
   }
 
   check(text) {
     text == 'Otra'
       ? this.setState({
-          otra: true,
-          fija: false,
+          selected: 'Otra',
         })
       : this.setState(
           {
-            fija: true,
-            otra: false,
+            selected: 'Paquetería TRESGUERRAS',
             otherCompañy: 'Paquetería TRESGUERRAS',
           },
           () => {
@@ -35,22 +32,32 @@ export default class CompañiaEntrega extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.label}>
-          <Text style={{letterSpacing: 2}}>Escoge tu compañía de entrega</Text>
+          <Text style={styles.labelTxt}>Escoge tu compañía de entrega</Text>
         </View>
         {data.map((text, index) => (
           <View
             key={index}
             style={{flexDirection: 'row', alignItems: 'center'}}>
-            <CheckBox
-              center
-              checkedColor="black"
-              checked={text == 'Otra' ? this.state.otra : this.state.fija}
-              onPress={() => this.check(text)}
-            />
-            <Text>{text}</Text>
+            <View
+              style={{
+                padding: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <CheckBox
+                tintColors={{true: '#559e26', false: '#aaaaaa'}}
+                onCheckColor={'#559e26'}
+                onTintColor={'#559e26'}
+                key={index}
+                disabled={false}
+                value={this.state.selected == text ? true : false}
+                onValueChange={() => this.check(text)}
+              />
+            </View>
+            <Text style={{fontSize: 15, marginLeft: 5}}>{text}</Text>
           </View>
         ))}
-        {this.state.otra && (
+        {this.state.selected == 'Otra' && (
           <View style={styles.inputV}>
             <TextInput
               style={[styles.input2]}
@@ -79,6 +86,14 @@ const styles = StyleSheet.create({
     borderColor: '#D8D3D3',
     marginBottom: 10,
     alignItems: 'center',
+  },
+  labelTxt: {
+    textAlign: 'center',
+    marginVertical: 10,
+    textTransform: 'uppercase',
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: 'grey',
   },
   container: {flex: 1, width: '100%', paddingBottom: 10, height: 'auto'},
   containerStyle: {

@@ -17,13 +17,15 @@ class ButtonView extends Component {
   render() {
     return (
       <View style={styles.buttonView}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.props.navRedux.navigate('Login');
-          }}>
-          <Text style={styles.buttonText}>INICIA SESIÓN!</Text>
-        </TouchableOpacity>
+        {this.props.user.name == '' && (
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navRedux.navigate('Login');
+            }}>
+            <Text style={styles.buttonText}>INICIA SESIÓN/REGÍSTRATE</Text>
+          </TouchableOpacity>
+        )}
         {this.props.user.name != '' && (
           <TouchableOpacity
             style={styles.close}

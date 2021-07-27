@@ -33,7 +33,7 @@ export default class Presentaciones extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.label}>
-          <Text>Presentación del producto</Text>
+          <Text style={styles.labelTxt}>Presentación del producto</Text>
         </View>
         <ButtonGroup
           onPress={this.updateIndex}
@@ -61,6 +61,14 @@ const styles = StyleSheet.create({
     borderColor: '#D8D3D3',
     marginBottom: 10,
     alignItems: 'center',
+  },
+  labelTxt: {
+    textAlign: 'center',
+    marginVertical: 10,
+    textTransform: 'uppercase',
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: 'grey',
   },
   container: {flex: 1, width: '100%', paddingBottom: 10},
   containerStyle: {

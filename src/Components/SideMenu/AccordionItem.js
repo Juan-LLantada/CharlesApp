@@ -27,7 +27,7 @@ class AccordionItem extends Component {
               <Text style={styles.navItemStyle}>{datos.title}</Text>
             </View>
             <View style={styles.icon}>
-              <datos.Icon />
+              <datos.Icon width={30} height={30} />
             </View>
           </TouchableOpacity>
         ))}

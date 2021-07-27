@@ -7,6 +7,7 @@ import Upload from '../Screens/Upload';
 import Confirmacion from '../Screens/Confirmacion';
 import Login from '../Screens/Login';
 import Registro from '../Screens/Registro';
+import PasswordChange from '../Screens/PasswordChange';
 //chronos cultivos stack
 import Agave from '../Screens/Cultivos/Agave';
 import Aguacate from '../Screens/Cultivos/Aguacate';
@@ -104,6 +105,12 @@ export const mainStack = [
     name: 'Login',
     component: Login,
     label: 'Iniciar Sesión',
+    shown: true,
+  },
+  {
+    name: 'PasswordChange',
+    component: PasswordChange,
+    label: 'Cambio de Contraseña',
     shown: true,
   },
   {

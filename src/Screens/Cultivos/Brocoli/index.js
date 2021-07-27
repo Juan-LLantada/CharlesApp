@@ -19,13 +19,13 @@ export default class Brocoli extends Component {
           <Image
             source={Header}
             style={{
-              width: EBios - 20,
+              width: width - 20,
               height: 440,
               resizeMode: 'contain',
             }}
           />
           <View style={styles.headerLogo}>
-            <EntornoSolucion style={{width: 120, height: 120}} />
+            <EBios style={{width: 120, height: 120}} />
             <Divider style={{backgroundColor: 'grey', width: '100%'}} />
           </View>
           <View style={{flex: 1, padding: 15}}>

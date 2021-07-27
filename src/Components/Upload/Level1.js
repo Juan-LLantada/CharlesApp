@@ -127,9 +127,9 @@ class Level1 extends Component {
           onPress={() => {
             this.chooseFile();
           }}>
-          <Text style={styles.btnTxt}>ESCOGER FOTO DE LA BIBLIOTECA</Text>
+          <Text style={styles.buttont}>ESCOGER FOTO DE LA BIBLIOTECA</Text>
           <View style={styles.icon}>
-            <Camera width={50} height={50} />
+            <Camera width={30} height={30} />
           </View>
         </TouchableOpacity>
         <TouchableOpacity
@@ -137,9 +137,9 @@ class Level1 extends Component {
           onPress={() => {
             this.captureImage();
           }}>
-          <Text style={styles.btnTxt}>TOMAR UNA FOTO</Text>
+          <Text style={styles.buttont}>TOMAR UNA FOTO</Text>
           <View style={styles.icon}>
-            <Camera width={50} height={50} />
+            <Camera width={30} height={30} />
           </View>
         </TouchableOpacity>
         <TouchableOpacity
@@ -147,7 +147,7 @@ class Level1 extends Component {
           onPress={() => {
             this.props.navRedux.navigate('Comunidad');
           }}>
-          <Back width={40} height={40} />
+          <Back width={30} height={30} />
           <Text style={styles.cancel}>CANCELAR</Text>
         </TouchableOpacity>
       </View>
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
+    height: 'auto',
     margin: 10,
     borderRadius: 50,
     flexDirection: 'row',
@@ -172,7 +173,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#d4e1d8',
     ...elevation10,
   },
-  btnTxt: {color: '#121e2f', marginLeft: 20, fontWeight: 'bold'},
+  buttont: {
+    color: '#121e2f',
+    fontSize: 15,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    marginLeft: 20,
+  },
+  text: {color: 'white', fontStyle: 'italic'},
   icon: {
     borderRadius: 100,
     backgroundColor: 'rgba(72,146,167,0.4)',

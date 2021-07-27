@@ -3,7 +3,8 @@ import {View, StyleSheet, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {AccordionItem} from '../index';
 import {chronosSideBar} from '../../../Constants/data';
-import {Icon, Accordion} from 'native-base';
+import {Accordion} from 'native-base';
+import {Plus, Minus} from '../../../Constants/Icons/design';
 const mapStateToProps = state => ({
   state: state,
   selected: state.selectedProduct.selected.title,
@@ -19,9 +20,9 @@ class MenuAccordion extends Component {
       <View style={styles.header}>
         <Text style={styles.title}> {item.title}</Text>
         {expanded ? (
-          <Icon style={styles.icon} name="remove-circle" />
+          <Minus width={20} height={20} />
         ) : (
-          <Icon style={styles.icon} name="add-circle" />
+          <Plus width={20} height={20} />
         )}
       </View>
     );

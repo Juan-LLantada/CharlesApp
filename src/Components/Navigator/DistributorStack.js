@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {DrawerActions} from '@react-navigation/native';
-import {OatRight, OatLeft} from '../../Constants/Icons/design';
+import {OatRight, OatLeft, Menu} from '../../Constants/Icons/design';
 import {createStackNavigator} from '@react-navigation/stack';
 import {DistributorStack} from '../../Constants/screens';
 const Stack = createStackNavigator();
@@ -12,10 +11,6 @@ const options = {
   },
   headerLeftContainerStyle: {
     paddingHorizontal: 20,
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
   },
 };
 // OCUPAS MYTAB, FIELDTAB & STORAGE TAB
@@ -29,7 +24,7 @@ export function DistributorsStack() {
           component={item.component}
           options={({navigation}) => ({
             ...options,
-            headerTitle: props => (
+            headerRight: props => (
               <View style={styles.titleView}>
                 <OatLeft />
                 <Text style={styles.title}>{item.name}</Text>
@@ -41,7 +36,7 @@ export function DistributorsStack() {
                 onPress={() => {
                   navigation.dispatch(DrawerActions.toggleDrawer());
                 }}>
-                <Icon name="menu" size={30} style={styles.icon} />
+                <Menu width={30} height={30} />
               </TouchableOpacity>
             ),
           })}

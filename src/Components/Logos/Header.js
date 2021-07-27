@@ -2,10 +2,17 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {OatLeft, OatRight} from '../../Constants/Icons/design';
 import {width} from '../../Constants/styles';
-export default class Header extends Component {
+import {connect} from 'react-redux';
+const mapStateToProps = state => ({
+  navRedux: state.navRedux.navRedux,
+  user: state.userLoginValues,
+});
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    console.log('AQUI STATE');
+    console.log(this.props.user);
   }
 
   render() {
@@ -13,13 +20,19 @@ export default class Header extends Component {
       <View style={styles.card}>
         <View style={styles.header}>
           <OatLeft />
-          <Text style={styles.headerText}> B I E N V E N I D O </Text>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={styles.headerText}> B I E N V E N I D O </Text>
+            {this.props.user.name != '' && (
+              <Text style={styles.name}>{this.props.user.name}</Text>
+            )}
+          </View>
           <OatRight />
         </View>
       </View>
     );
   }
 }
+export default connect(mapStateToProps)(Header);
 const styles = StyleSheet.create({
   card: {
     width: width,
@@ -39,7 +52,10 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    textShadowRadius: 10,
+    color: 'white',
+  },
+  name: {
+    fontSize: 15,
     color: 'white',
   },
 });

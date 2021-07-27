@@ -46,14 +46,14 @@ class Upload extends Component {
   };
   render() {
     return (
-      <ScrollView style={{flex: 1}}>
-        <ImageBackground source={Bg} style={styles.bg}>
+      <ImageBackground source={Bg} style={styles.bg}>
+        <ScrollView style={{flex: 1}}>
           <View style={styles.containter}>
             {this.props.level == 1 && <Level1 />}
             {this.props.level == 2 && <ImageOverlay />}
           </View>
-        </ImageBackground>
-      </ScrollView>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 }

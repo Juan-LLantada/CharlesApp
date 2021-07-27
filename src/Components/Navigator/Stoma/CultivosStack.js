@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {DrawerActions} from '@react-navigation/native';
 import {OatRight, OatLeft} from '../../../Constants/Icons/design';
 import {createStackNavigator} from '@react-navigation/stack';
 import {stomaCStack} from '../../../Constants/screens';
+import {Menu} from '../../../Constants/Icons/design';
 const Stack = createStackNavigator();
 const options = {
   headerStyle: {
@@ -12,10 +12,6 @@ const options = {
   },
   headerLeftContainerStyle: {
     paddingHorizontal: 20,
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
   },
 };
 // OCUPAS MYTAB, FIELDTAB & STORAGE TAB
@@ -29,7 +25,7 @@ export function CultivosSStack() {
           component={item.component}
           options={({navigation}) => ({
             ...options,
-            headerTitle: props => (
+            headerRight: props => (
               <View style={styles.titleView}>
                 <OatLeft />
                 <Text style={styles.title}>{item.name}</Text>
@@ -41,7 +37,7 @@ export function CultivosSStack() {
                 onPress={() => {
                   navigation.dispatch(DrawerActions.toggleDrawer());
                 }}>
-                <Icon name="menu" size={30} style={styles.icon} />
+                <Menu width={30} height={30} />
               </TouchableOpacity>
             ),
           })}

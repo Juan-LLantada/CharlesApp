@@ -45,7 +45,6 @@ class NavIcon extends Component {
             source={Bg}>
             <View style={styles.card}>
               <this.item.Icon
-                style={this.item.size}
                 height={this.item.size.height}
                 width={this.item.size.width}
               />
@@ -99,6 +98,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   option: {
+    flexWrap: 'wrap',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',

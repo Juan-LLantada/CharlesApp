@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Platform, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Divider} from 'react-native-elements';
 import {RightArrow} from '../../Constants/Icons/design';
 export default class Login extends Component {
@@ -10,76 +10,46 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={styles.centerView}>
-        <View style={[styles.innerCenter]}>
-          <Text style={styles.regis}>No tienes cuenta? Regístrate!</Text>
-          <Divider style={{backgroundColor: 'lightgrey', width: '80%'}} />
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate('Registro');
-            }}
-            style={[styles.button]}>
-            <Text style={styles.btnText}>Registrarme</Text>
-            <RightArrow />
-          </TouchableOpacity>
-        </View>
+      <View style={styles.container}>
+        <Divider style={styles.divider} />
+        <Text style={styles.regis}>No tienes cuenta? Regístrate!</Text>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Registro');
+          }}
+          style={styles.button}>
+          <Text style={styles.btnText}>REGISTRARME</Text>
+          <RightArrow />
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  innerCenter: {
+  container: {
     width: '100%',
-    height: 'auto',
-    alignItems: 'center',
     padding: 10,
   },
   regis: {
-    color: 'black',
-    fontSize: 15,
+    color: 'grey',
+    fontSize: 12,
     fontStyle: 'italic',
-    margin: 20,
+    textAlign: 'center',
   },
-  centerView: {
-    marginVertical: 20,
-    justifyContent: 'space-between',
-    width: '100%',
-    height: 'auto',
-    borderRadius: 10,
-    alignItems: 'center',
-    backgroundColor: 'white',
-    ...Platform.select({
-      ios: {
-        shadowRadius: 10,
-        shadowColor: 'black',
-        shadowOffset: {width: 5, height: 5},
-        shadowOpacity: 0.2,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
-  },
+  divider: {backgroundColor: 'grey', width: '100%', marginVertical: 20},
   button: {
     alignSelf: 'center',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'rgba(60,154,175,1)',
+    backgroundColor: 'rgb(117,166,84)',
     justifyContent: 'space-between',
     borderRadius: 50,
     padding: 10,
     paddingHorizontal: 20,
     margin: 20,
-  },
-  bg: {
-    width: '100%',
-    height: 'auto',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   btnText: {color: 'white', fontSize: 15, fontWeight: 'bold'},
 });

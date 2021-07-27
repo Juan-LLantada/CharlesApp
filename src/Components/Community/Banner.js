@@ -24,7 +24,7 @@ class Banner extends React.Component {
           }}>
           <Text style={styles.buttont}>Compartir imagen</Text>
           <View style={styles.icon}>
-            <Camera width={50} height={50} />
+            <Camera width={30} height={30} />
           </View>
         </TouchableOpacity>
       </View>

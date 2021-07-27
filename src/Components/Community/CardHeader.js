@@ -21,7 +21,7 @@ export default class CardHeader extends Component {
             <Text style={styles.middleText}>Epsilon </Text>
             <Text style={styles.rightText}>Bios</Text>
           </View>
-          <Text note>@{this.props.name}</Text>
+          <Text>@{this.props.name}</Text>
         </Body>
       </CardItem>
     );

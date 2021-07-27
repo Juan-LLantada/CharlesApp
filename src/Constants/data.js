@@ -174,7 +174,7 @@ export const community = [
     title: 'VENTA DE PRODUCTOS',
     Icon: Productos,
     route: 'Ventas',
-    size: {width: width / 2.1, height: width / 2.1},
+    size: {width: width / 3.5, height: width / 3.5},
   },
   {
     title: 'AMIGOS DE LOS AMANCERES',

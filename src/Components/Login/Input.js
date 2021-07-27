@@ -1,36 +1,45 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
-import {Item, Input as InputComponent, View} from 'native-base';
+import {StyleSheet, TextInput, View, Text} from 'react-native';
 import {elevation10} from '../../Constants/styles';
 export default class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.item = this.props.item;
   }
 
   render() {
     return (
-      <InputComponent
-        placeholder={this.props.placeholder}
-        placeholderTextColor="grey"
-        autoCapitalize={'none'}
-        secureTextEntry={this.props.secure}
-        style={styles.input}
-        onChangeText={text => {
-          this.props.change(text, this.props.placeholder);
-        }}
-      />
+      <View style={styles.container}>
+        <Text style={styles.label}>{this.item.label}</Text>
+        <TextInput
+          placeholder={this.item.placeholder}
+          placeholderTextColor="grey"
+          autoCapitalize={'none'}
+          secureTextEntry={this.item.secure}
+          style={styles.input}
+          onChangeText={text => {
+            this.props.change(text, this.item.key);
+          }}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'transparent',
-    width: '90%',
-    marginVertical: 10,
+    width: '100%',
+  },
+  label: {
+    textTransform: 'uppercase',
+    fontSize: 12,
+    color: 'grey',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   input: {
+    color: 'black',
     width: '100%',
     backgroundColor: 'white',
     borderRadius: 20,

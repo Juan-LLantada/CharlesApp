@@ -1,11 +1,5 @@
 import React, {Component} from 'react';
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {View, StyleSheet, ImageBackground, ScrollView} from 'react-native';
 import Bg from '../../Assets/Img/Bg/fondoepsi.png';
 import {CardListC} from '../../Components/Logos/Community';
 import {CardListS} from '../../Components/Logos/Socials';
@@ -18,6 +12,7 @@ import {
 import {elevation10} from '../../Constants/styles';
 import {getUser} from '../../Actions/userValues';
 import {connect} from 'react-redux';
+import {SafeAreaView} from 'react-native-safe-area-context';
 const mapStateToProps = state => ({
   navRedux: state.navRedux.navRedux,
 });
@@ -31,7 +26,7 @@ class Logos extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={styles.flex1}>
+      <SafeAreaView edges={['top']} style={{flex: 1}}>
         <ImageBackground style={styles.flex1} source={Bg}>
           <View style={styles.flex1}>
             <Header />
