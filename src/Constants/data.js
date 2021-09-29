@@ -1,5 +1,5 @@
 //socials
-import {Facebook, Instagram, Whatsapp, Mail} from './Icons/socials';
+import {Facebook, Instagram, Whatsapp, Mail, Youtube} from './Icons/socials';
 //sales
 import {Diagnosis, Engine, Hands, Rentability, Oportunity} from './Icons/sales';
 //logos
@@ -10,6 +10,32 @@ import {CULTIVOS} from './Icons/sidebarcultivos';
 //design
 import {Productos} from './Icons/design';
 import {width} from './styles';
+//stoma researches
+import {
+  Arandano,
+  Calabaza,
+  ChileS,
+  Lechuga,
+  Melon,
+  Papaya,
+  Pepino,
+} from './Icons/stomaR';
+import {
+  Agave,
+  Agave2,
+  Agave3,
+  Arandano1,
+  Arandano2,
+  Arandano3,
+  Calabaza1,
+  Frambuesa,
+  Fresa,
+  Limon,
+  Maiz,
+  Pimiento,
+  Pimiento2,
+  Rosal,
+} from './Icons/chronosR';
 
 //users allowed in app
 export const users = [
@@ -52,6 +78,12 @@ export const ventasIcons2 = [
 ];
 
 export const sideCultivosChronos = [
+  {
+    title: 'Círculo de beneficios',
+    route: 'Benefits',
+    Icon: CULTIVOS[34],
+    screen: 'Cultivos',
+  },
   {title: 'Agave', route: 'Agave', Icon: CULTIVOS[0], screen: 'Cultivos'},
   {title: 'Aguacate', route: 'Aguacate', Icon: CULTIVOS[1], screen: 'Cultivos'},
   {title: 'Ajo', route: 'Ajo', Icon: CULTIVOS[2], screen: 'Cultivos'},
@@ -119,6 +151,12 @@ export const sideCultivosChronos = [
 ];
 
 export const sideCultivosStoma = [
+  {
+    title: 'Círculo de beneficios',
+    route: 'Benefits',
+    Icon: CULTIVOS[34],
+    screen: 'Cultivos',
+  },
   {title: 'Stoma-Or', route: 'Stoma-Or', Icon: CULTIVOS[0], screen: 'Cultivos'},
 ];
 
@@ -185,30 +223,178 @@ export const community = [
 ];
 
 export const socials = [
-  {title: 'PÁGINA WEB', Icon: Bios, url: 'https://epsilonbios.com'},
   {
-    title: 'WHATSAPP',
+    title: 'Visita www.epsilonbios.com!',
+    Icon: Bios,
+    url: 'https://epsilonbios.com',
+  },
+  {
+    title: 'Envíanos un Whatsapp!',
     Icon: Whatsapp,
     url: 'whatsapp://send?text= Hola, tengo una duda! &phone=5213318659920',
   },
   {
-    title: 'CORREO',
+    title: 'Envíanos un correo!',
     Icon: Mail,
     url:
       'mailto:Alopez@epsilonbios.com?&subject=Contacto&body=Hola, tengo una duda!',
   },
   {
-    title: 'FACEBOOK',
+    title: 'Visita nuestra página de Facebook!',
     Icon: Facebook,
     url: 'https://www.facebook.com/EpsilonBios',
   },
   {
-    title: 'INSTAGRAM',
+    title: 'Visita nuestra página de Instagram!',
     Icon: Instagram,
     url: 'https://instagram.com/epsilonbios?igshid=im2vgkdiytwc',
+  },
+  {
+    title: 'Visita nuestro canal de Youtube!',
+    Icon: Youtube,
+    url: 'https://www.youtube.com/channel/UCqBEeZ-aZy2ksunc0BlJXfQ',
   },
 ];
 
 export const welcomeText1 =
   'Estás a solo un paso de proyectar tu cultivo a la comunidad! Ahora puedes interactuar con nosotros compartiendo una fotografía de tus cultivos';
 export const welcomeText2 = `Solo da clic en nuestro botón${'\n'}"Compartir imagen"${'\n'}para que todos puedan verla!`;
+
+export const stomaResearches = [
+  {
+    title: 'Calabaza: Evaluación Chronos Life y Stoma-Or',
+    url: 'http://161.35.105.244/ficha/INFORMETECNICOCALABAZA.pdf',
+    img: Calabaza,
+  },
+  {
+    title: 'Lechuga: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/ENSAYOLECHUGAEBIOS.pdf',
+    img: Lechuga,
+  },
+  {
+    title: 'Pepino: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/PEPINOCHRONOSTOMA.pdf',
+    img: Pepino,
+  },
+  {
+    title: 'Melón: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/CHRONOSTOMA.pdf',
+    img: Melon,
+  },
+  {
+    title: 'Papaya: Aplicación de Stoma-Or para evitar aborto de frutas',
+    url:
+      'http://161.35.105.244/ficha/DISMINUCIÓNDEABORTODEFRUTASPAPAYA(STOMAOR).pdf',
+    img: Papaya,
+  },
+  {
+    title:
+      'Arándano: Demostración comercial de Stoma-Or bajo condiciones de estrés por alta temperatura en cultivo.',
+    url:
+      'http://161.35.105.244/ficha/ESTRESPORALTATEMPERATURAENARANDANOS(STOMAOR).pdf',
+    img: Arandano,
+  },
+  {
+    title: 'Chile Serrano: Evaluación Stoma-Or',
+    url: 'http://161.35.105.244/ficha/REPORTETÉCNICOCHILESERRANO(STOMA).pdf',
+    img: ChileS,
+  },
+];
+
+export const chronosResearches = [
+  {
+    title: 'Calabaza: Evaluación Chronos Life y Stoma-Or',
+    url: 'http://161.35.105.244/ficha/INFORMETECNICOCALABAZA.pdf',
+    img: Calabaza1,
+  },
+  {
+    title: 'Lechuga: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/ENSAYOLECHUGAEBIOS.pdf',
+    img: Lechuga,
+  },
+  {
+    title: 'Pepino: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/PEPINOCHRONOSTOMA.pdf',
+    img: Pepino,
+  },
+  {
+    title: 'Melón: Evaluación Chronos Life y Stoma Or',
+    url: 'https://apicropsmanager.com/imagenes/CHRONOSTOMA.pdf',
+    img: Melon,
+  },
+  {
+    title: 'Pimiento: Mayor cuaje y uniformidad en cultivo',
+    url:
+      'http://161.35.105.244/ficha/MAYORCUAJEYUNIFORMIDADPIMIENTO(CHRONOS).pdf',
+    img: Pimiento,
+  },
+  {
+    title: 'Fresa: Mayor calibre de fruta',
+    url:
+      'http://161.35.105.244/ficha/MAYORCALIBREDEFRUTACULTIVOFRESA(CHRONOS).pdf',
+    img: Fresa,
+  },
+  {
+    title: 'Arándano: Inducción de segundo flujo productivo en el cultivo',
+    url:
+      'http://161.35.105.244/ficha/INDUCCIÓNSEGUNDOFLUJOPRODUCTIVOARANDANOS.pdf',
+    img: Arandano1,
+  },
+  {
+    title: 'Maíz: Incremento de rendimiento',
+    url: 'http://161.35.105.244/ficha/INCREMENTOPRODUCCIONMAIZ(CHRONOS).pdf',
+    img: Maiz,
+  },
+  {
+    title: 'Arándano: Estimulación generativa',
+    url:
+      'http://161.35.105.244/ficha/ESTIMULACIÓNGENERATIVAARANDANO(CHRONOS).pdf',
+    img: Arandano2,
+  },
+  {
+    title: 'Limón: Inducción floral en el cultivo',
+    url: 'http://161.35.105.244/ficha/ENSAYOINDUCCIÓNFLORALLIMON(CHRONOS).pdf',
+    img: Limon,
+  },
+  {
+    title: 'Bell Pepper: Control de aborto de fruta',
+    url:
+      'http://161.35.105.244/ficha/CONTROLDEABORTODEFRUTABELLPEPPER(CHRONOS).pdf',
+    img: Pimiento2,
+  },
+  {
+    title: 'Rosal: Bioestimulación en cultivo',
+    url:
+      'http://161.35.105.244/ficha/BIOESTIMULACIONENCULTIVOROSAL(CHRONOS).pdf',
+    img: Rosal,
+  },
+  {
+    title: 'Agave: Aumento de grados Brix',
+    url:
+      'http://161.35.105.244/ficha/AUMENTOGRADOSBRIXAGAVEAZULTEQUILASIERRA(CHRONOS).pdf',
+    img: Agave,
+  },
+  {
+    title: 'Arándano: Aumento de tamaño de fruto',
+    url: 'http://161.35.105.244/ficha/AUMENTODETAMAÑOARANDANO(CHRONOS).pdf',
+    img: Arandano3,
+  },
+  {
+    title: 'Agave Weber Tequilana: Aumento de grados Brix',
+    url:
+      'http://161.35.105.244/ficha/AUMENTODEGRADOSBRIXAGAVETEQLASIERRACHRONOS.pdf',
+    img: Agave2,
+  },
+  {
+    title:
+      'Frambuesa var. Jazmín: Demostración comercial producto Chronos Life para el aumento de cargadores y calidad de cosecha en radicular y foliar',
+    url:
+      'http://161.35.105.244/ficha/AUMENTODECARGADORESFRAMBUESASLOS4BERRYMEXCHRONOS.pdf',
+    img: Frambuesa,
+  },
+  {
+    title: 'Agave: Desarrollo bioestimulación',
+    url: 'http://161.35.105.244/ficha/AUMENTONUMEROHOJASAGAVE(CHRONOS).pdf',
+    img: Agave3,
+  },
+];

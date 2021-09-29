@@ -9,6 +9,8 @@ import Login from '../Screens/Login';
 import Registro from '../Screens/Registro';
 import PasswordChange from '../Screens/PasswordChange';
 //chronos cultivos stack
+//benefits in stack
+import Benefits from '../Screens/Benefits';
 import Agave from '../Screens/Cultivos/Agave';
 import Aguacate from '../Screens/Cultivos/Aguacate';
 import Ajo from '../Screens/Cultivos/Ajo';
@@ -133,6 +135,10 @@ export const mainStack = [
   },
 ];
 export const chronosCStack = [
+  {
+    name: 'Benefits',
+    component: Benefits,
+  },
   {
     name: 'Agave',
     component: Agave,
@@ -272,6 +278,10 @@ export const chronosCStack = [
 ];
 
 export const stomaCStack = [
+  {
+    name: 'Benefits',
+    component: Benefits,
+  },
   {
     name: 'Stoma-Or',
     component: Stoma,

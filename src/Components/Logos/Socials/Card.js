@@ -15,7 +15,8 @@ export default class Card extends Component {
           Linking.openURL(this.item.url);
         }}>
         <View style={styles.card}>
-          <this.item.Icon width={width / 12} height={width / 12} />
+          <this.item.Icon width={30} height={30} />
+          <Text style={styles.title}>{this.item.title}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -24,21 +25,22 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
   view: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 50,
+    borderRadius: 30,
+    overflow: 'hidden',
+    borderWidth: 4,
+    padding: 5,
+    borderColor: 'rgba(255,255,255,0.5)',
+    width: '100%',
+    marginVertical: 10,
   },
   card: {
-    width: width / 7,
-    height: width / 7,
-    borderRadius: width / 7,
-    backgroundColor: 'white',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     alignItems: 'center',
-    overflow: 'hidden',
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.5)',
+    backgroundColor: 'white',
     ...elevation10,
+    borderRadius: 20,
+    padding: 10,
   },
   option: {
     width: '100%',
@@ -55,5 +57,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     marginRight: 5,
+  },
+  title: {
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    fontSize: 12,
+    color: 'grey',
   },
 });

@@ -37,14 +37,3 @@ export function ChronosDrawer() {
     </Drawer.Navigator>
   );
 }
-
-/*
- drawerIcon: ({focused, tintColor}) => {
-              const iconName = focused ? (
-                <item.Selected width={24} height={24} />
-              ) : (
-                <item.Unselected width={24} height={24} />
-              );
-              return iconName;
-            },
-*/

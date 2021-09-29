@@ -17,7 +17,13 @@ class AccordionItem extends Component {
         {this.options.map((datos, index) => (
           <TouchableOpacity
             key={index}
-            style={styles.navSectionStyle}
+            style={{
+              ...styles.navSectionStyle,
+              backgroundColor:
+                datos.title != 'Círculo de beneficios'
+                  ? 'rgba(68,140,36,0.5)'
+                  : 'rgba(255,255,255,0.4)',
+            }}
             onPress={() => {
               this.props.navRedux.navigate(datos.screen, {
                 screen: datos.route,

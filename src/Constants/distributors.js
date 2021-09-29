@@ -26,16 +26,6 @@ export const distribuidor2 = [
     Imagen: Ananas,
   },
   {
-    titulo1: 'Servicio Agrotécnico',
-    titulo2: ' ',
-    Dirección: '91680, Calle Independencia 36, Centro, José Crdel, Ver.',
-    telefonos: 'Tel: 296 962 0400',
-    Imagen: ServicioAgro,
-  },
-];
-
-export const distribuidor3 = [
-  {
     titulo1: 'Ananas',
     titulo2: 'Sucursal Los Tigres',
     Dirección:
@@ -59,6 +49,16 @@ export const distribuidor3 = [
     telefonos: 'Tel: 283 104 05 69',
     Imagen: Ananas,
   },
+  {
+    titulo1: 'Servicio Agrotécnico',
+    titulo2: ' ',
+    Dirección: '91680, Calle Independencia 36, Centro, José Crdel, Ver.',
+    telefonos: 'Tel: 296 962 0400',
+    Imagen: ServicioAgro,
+  },
+];
+
+export const distribuidor3 = [
   {
     titulo1: 'Cruz Negra Agroquímicos',
     titulo2: 'Sucursal',

@@ -28,7 +28,11 @@ export function CultivosCStack() {
             headerRight: props => (
               <View style={styles.titleView}>
                 <OatLeft />
-                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.title}>
+                  {item.name == 'Benefits'
+                    ? 'Círculo de Beneficios'
+                    : item.name}
+                </Text>
                 <OatRight />
               </View>
             ),

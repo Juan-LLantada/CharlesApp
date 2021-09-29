@@ -33,6 +33,8 @@ import TRIGO from '../../Assets/Svg/CultivosSideBar/Trigo.svg';
 import UVA from '../../Assets/Svg/CultivosSideBar/Uva.svg';
 import ZANAHORIA from '../../Assets/Svg/CultivosSideBar/Carrot.svg';
 
+import CIRCLE from '../../Assets/Svg/CultivosSideBar/circle.svg';
+
 export const CULTIVOS = [
   AGAVE,
   AGUACATE,
@@ -68,4 +70,5 @@ export const CULTIVOS = [
   TRIGO,
   UVA,
   ZANAHORIA,
+  CIRCLE,
 ];

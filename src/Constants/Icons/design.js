@@ -21,6 +21,7 @@ import Back from '../../Assets/Svg/Design/back.svg';
 import Menu from '../../Assets/Svg/Design/menu.svg';
 import Plus from '../../Assets/Svg/Design/plus.svg';
 import Minus from '../../Assets/Svg/Design/minus.svg';
+import Pdf from '../../Assets/Svg/Design/pdf.svg';
 
 export {
   User,
@@ -46,4 +47,5 @@ export {
   Menu,
   Plus,
   Minus,
+  Pdf,
 };

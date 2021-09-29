@@ -22,10 +22,10 @@ export default class CardListS extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    // flexDirection: 'row',
+    //  flexWrap: 'wrap',
     padding: 10,
   },
 });
