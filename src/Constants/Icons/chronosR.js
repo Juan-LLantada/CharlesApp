@@ -12,6 +12,7 @@ import Maiz from '../../Assets/Img/ResearchChronos/maiz.png';
 import Pimiento from '../../Assets/Img/ResearchChronos/pimiento.png';
 import Pimiento2 from '../../Assets/Img/ResearchChronos/pimiento2.png';
 import Rosal from '../../Assets/Img/ResearchChronos/rosal.png';
+import Frambuesas2 from '../../Assets/Img/ResearchChronos/frambuesas2.png';
 
 export {
   Agave,
@@ -28,4 +29,5 @@ export {
   Pimiento,
   Pimiento2,
   Rosal,
+  Frambuesas2,
 };

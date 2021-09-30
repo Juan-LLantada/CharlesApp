@@ -29,6 +29,7 @@ import {
   Arandano3,
   Calabaza1,
   Frambuesa,
+  Frambuesas2,
   Fresa,
   Limon,
   Maiz,
@@ -306,6 +307,11 @@ export const chronosResearches = [
     title: 'Calabaza: Evaluación Chronos Life y Stoma-Or',
     url: 'http://161.35.105.244/ficha/INFORMETECNICOCALABAZA.pdf',
     img: Calabaza1,
+  },
+  {
+    title: 'Frambuesas: Estimulacion Generativa En El Cultivo Var. Evita',
+    url: 'http://161.35.105.244/ficha/ENSAYOEstimulacionFrambuesaEvita.pdf',
+    img: Frambuesas2,
   },
   {
     title: 'Lechuga: Evaluación Chronos Life y Stoma Or',
