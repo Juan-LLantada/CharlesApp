@@ -55,8 +55,11 @@ import Distribuidor2 from '../Screens/Distribuidores/Distribuidor2';
 import Distribuidor3 from '../Screens/Distribuidores/Distribuidor3';
 import Distribuidor4 from '../Screens/Distribuidores/Distribuidor4';
 
-//home drawer
+//drawer
 import Home from '../Screens/Home';
+import GolfField from '../Screens/GolfField';
+import SportAreas from '../Screens/SportAreas';
+import PlantNursery from '../Screens/PlantNursery';
 
 //stacks
 import {CultivosCStack} from '../Components/Navigator/Chronos/CultivosStack';
@@ -320,6 +323,18 @@ export const drawerChronos = [
     name: 'Distribuidores',
     component: DistributorsStack,
   },
+  {
+    name: 'Campos de Golf',
+    component: GolfField,
+  },
+  {
+    name: 'Areas Deportivas',
+    component: SportAreas,
+  },
+  {
+    name: 'Viveros',
+    component: PlantNursery,
+  },
 ];
 
 export const drawerStoma = [
@@ -334,5 +349,17 @@ export const drawerStoma = [
   {
     name: 'Distribuidores',
     component: DistributorsStack,
+  },
+  {
+    name: 'Campos de Golf',
+    component: GolfField,
+  },
+  {
+    name: 'Areas Deportivas',
+    component: SportAreas,
+  },
+  {
+    name: 'Viveros',
+    component: PlantNursery,
   },
 ];

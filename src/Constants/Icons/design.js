@@ -22,6 +22,9 @@ import Menu from '../../Assets/Svg/Design/menu.svg';
 import Plus from '../../Assets/Svg/Design/plus.svg';
 import Minus from '../../Assets/Svg/Design/minus.svg';
 import Pdf from '../../Assets/Svg/Design/pdf.svg';
+import Golf from '../../Assets/Svg/Design/golfField.svg';
+import Nursery from '../../Assets/Svg/Design/plantNursery.svg';
+import Sport from '../../Assets/Svg/Design/sportAreas.svg';
 
 export {
   User,
@@ -48,4 +51,7 @@ export {
   Plus,
   Minus,
   Pdf,
+  Golf,
+  Nursery,
+  Sport,
 };

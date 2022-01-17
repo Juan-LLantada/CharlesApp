@@ -8,7 +8,7 @@ import {ChronosIcon, StomaIcon, Amaneceres, Bios} from './Icons/logos';
 //chronos
 import {CULTIVOS} from './Icons/sidebarcultivos';
 //design
-import {Productos} from './Icons/design';
+import {Golf, Nursery, Productos, Sport} from './Icons/design';
 import {width} from './styles';
 //stoma researches
 import {
@@ -182,15 +182,48 @@ export const sideDistChronos = [
     screen: 'Distribuidores',
   },
 ];
+
+const golfField = [
+  {
+    title: 'Campos de Golf',
+    route: 'Campos de Golf',
+    Icon: Golf,
+    screen: 'Campos de Golf',
+  },
+];
+
+const sportArea = [
+  {
+    title: 'Áreas Deportivas',
+    route: 'Areas Deportivas',
+    Icon: Sport,
+    screen: 'Areas Deportivas',
+  },
+];
+
+const plantNursery = [
+  {
+    title: 'Viveros',
+    route: 'Viveros',
+    Icon: Nursery,
+    screen: 'Viveros',
+  },
+];
 //fb://page/217737019108773
 export const chronosSideBar = [
-  {title: 'CULTIVOS', list: sideCultivosChronos},
-  {title: 'DISTRIBUIDORES', list: sideDistChronos},
+  {title: 'CULTIVOS', list: sideCultivosChronos, accordion: true},
+  {title: 'CAMPOS DE GOLF', list: golfField, accordion: false},
+  {title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
+  {title: 'VIVEROS', list: plantNursery, accordion: false},
+  {title: 'DISTRIBUIDORES', list: sideDistChronos, accordion: true},
 ];
 
 export const stomaSideBar = [
-  {title: 'CULTIVOS', list: sideCultivosStoma},
-  {title: 'DISTRIBUIDORES', list: sideDistChronos},
+  {title: 'CULTIVOS', list: sideCultivosStoma, accordion: true},
+  {title: 'CAMPOS DE GOLF', list: golfField, accordion: false},
+  {title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
+  {title: 'VIVEROS', list: plantNursery, accordion: false},
+  {title: 'DISTRIBUIDORES', list: sideDistChronos, accordion: true},
 ];
 
 export const logos = [
