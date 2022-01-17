@@ -24,9 +24,14 @@ import {
   Agave,
   Agave2,
   Agave3,
+  Agave4,
+  Agave5,
+  Agave6,
   Arandano1,
   Arandano2,
   Arandano3,
+  Arandano4,
+  Arandano5,
   Calabaza1,
   Frambuesa,
   Frambuesas2,
@@ -35,6 +40,9 @@ import {
   Maiz,
   Pimiento,
   Pimiento2,
+  Pimiento3,
+  Pimiento4,
+  TomateManzano,
   Rosal,
 } from './Icons/chronosR';
 
@@ -213,16 +221,16 @@ const plantNursery = [
 export const chronosSideBar = [
   {title: 'CULTIVOS', list: sideCultivosChronos, accordion: true},
   {title: 'CAMPOS DE GOLF', list: golfField, accordion: false},
-  {title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
-  {title: 'VIVEROS', list: plantNursery, accordion: false},
+  //{title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
+  // {title: 'VIVEROS', list: plantNursery, accordion: false},
   {title: 'DISTRIBUIDORES', list: sideDistChronos, accordion: true},
 ];
 
 export const stomaSideBar = [
   {title: 'CULTIVOS', list: sideCultivosStoma, accordion: true},
   {title: 'CAMPOS DE GOLF', list: golfField, accordion: false},
-  {title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
-  {title: 'VIVEROS', list: plantNursery, accordion: false},
+  //{title: 'ÁREAS DEPORTIVAS', list: sportArea, accordion: false},
+  // {title: 'VIVEROS', list: plantNursery, accordion: false},
   {title: 'DISTRIBUIDORES', list: sideDistChronos, accordion: true},
 ];
 
@@ -333,9 +341,64 @@ export const stomaResearches = [
     url: 'http://161.35.105.244/ficha/REPORTETÉCNICOCHILESERRANO(STOMA).pdf',
     img: ChileS,
   },
+  {
+    title: 'Arándano: Evaluación Estrés por Alta temperatura',
+    url: 'http://161.35.105.244/ficha/EnsayoArándanoAltaTemperaturaSTOMAOR.pdf',
+    img: Arandano4,
+  },
+  {
+    title: 'Pimiento: Ensayo Bio Estimulación vegetativa',
+    url: 'http://161.35.105.244/ficha/EnsayoPimientoMorronbioestimulacion.pdf',
+    img: Pimiento4,
+  },
+  {
+    title: 'Tomate: Condiciones estrés hídrico',
+    url:
+      'http://161.35.105.244/ficha/EnsayoTomateManzanoyTomateEstrésHídrico.pdf',
+    img: TomateManzano,
+  },
 ];
 
 export const chronosResearches = [
+  {
+    title: 'Arándano: Activación Metabólica',
+    url:
+      'http://161.35.105.244/ficha/EnsayoActivaciónmetabolicaARANDANOCHRONOS.pdf',
+    img: Arandano5,
+  },
+  {
+    title: 'Pimiento: Activación Metabólica',
+    url: 'http://161.35.105.244/ficha/EnsayoActivaciónmetabólicaBellPepper.pdf',
+    img: Pimiento3,
+  },
+  {
+    title: 'Agave: Aumento grados brix',
+    url: 'http://161.35.105.244/ficha/EnsayoAgaveAumentogradosbrix.pdf',
+    img: Agave4,
+  },
+  {
+    title: 'Agave: Incrementar tasa Metabólica en ambientes frios y sequía',
+    url: 'http://161.35.105.244/ficha/EnsayoAgavefríoysequía.pdf',
+    img: Agave6,
+  },
+  {
+    title: 'Aguacate: Ensayo Bio Estimulación vegetativa',
+    url:
+      'http://161.35.105.244/ficha/EnsayoAguacateBioestimulaciónvegetativa.pdf',
+    img: Agave5,
+  },
+  {
+    title: 'Pimiento: Ensayo Bio Estimulación vegetativa',
+    url: 'http://161.35.105.244/ficha/EnsayoPimientoMorronbioestimulacion.pdf',
+    img: Pimiento4,
+  },
+  {
+    title: 'Tomate: Condiciones estrés hídrico',
+    url:
+      'http://161.35.105.244/ficha/EnsayoTomateManzanoyTomateEstrésHídrico.pdf',
+    img: TomateManzano,
+  },
+
   {
     title: 'Calabaza: Evaluación Chronos Life y Stoma-Or',
     url: 'http://161.35.105.244/ficha/INFORMETECNICOCALABAZA.pdf',
